@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <div>
+            <h1>Test</h1>
+        </div>
+
+        <script>
+           
+            // let a = [[] , []];
+            // a.push(["satu"] , ["dua"]);
+            // a.push(['tiga'] , ["empat"]);
+            // a.forEach(e => {
+            //     console.log(e);
+            // });
+            // let b = {
+            //     test1 : "sasa",
+            //     test2:"sosos"
+            // }
+            // console.log(b.test1);
+        
+
+            // function addCoordinat(lat , lng){
+
+            // }
+
+
+          function addCoordinat(lat, lng){
+            let a = [
+                {
+
+                    lat : lat , 
+                    lng : lng
+
+                }
+            ];
+            a.push({lat : 12 , lng :12});
+            a.push({lat : 13 , lng :12});
+            a.push({lat : 14 , lng :12});
+            a.push({lat : 15 , lng :12});
+            a.forEach(element => {
+              console.log(element);  
+            });
+
+          }
+
+
+          let coor = addCoordinat(12121,2112121);
+          console.log(coor);
+
+    
+        </script>
+</body>
+</html>

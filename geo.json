@@ -1,0 +1,23 @@
+ [
+    {
+     " nama ": "josua",
+ "     akses ": "supir",
+      "jurusan" : "Leuwi Pamjang",
+    "  lat": 	-6.89787, 
+  "    lng": 107.56314 
+    },
+    {
+   "   nama" : "panjaitan",
+    "  akses ": "supir",
+     " jurusan" : "Cibiru",
+   "   lat": -6.90734, 
+ "     lng": 	107.57344 
+    },
+  
+    {
+     " nama" : "imanuel",
+   "   akses" : "penumpang",
+      "lat": -6.914864 ,
+    "  lng": 107.608238
+    }
+  ]

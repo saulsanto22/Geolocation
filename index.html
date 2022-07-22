@@ -1,0 +1,165 @@
+<html>
+  <head>
+    <title>Geolocation</title>
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <!-- jsFiddle will insert css and js -->
+ 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
+  <style>
+    #map {
+height: 100%;
+}
+
+/* 
+* Optional: Makes the sample page fill the window. 
+*/
+html,
+body {
+
+
+
+
+
+height: 100%;
+margin: 0;
+padding: 0;
+}
+
+.custom-map-control-button {
+background-color: #fff;
+border: 0;
+border-radius: 2px;
+box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+margin: 10px;
+padding: 0 0.5em;
+font: 400 18px Roboto, Arial, sans-serif;
+overflow: hidden;
+height: 40px;
+cursor: pointer;
+}
+.custom-map-control-button:hover {
+background: rgb(235, 235, 235);
+}
+
+#result {
+position: absolute;
+width: 100%;
+max-width:870px;
+cursor: pointer;
+overflow-y: auto;
+max-height: 400px;
+box-sizing: border-box;
+z-index: 1001;
+}
+.link-class:hover{
+background-color:#f1f1f1;
+}
+
+
+
+</style>  
+</head>
+  <body>
+    <div id="map">
+    </div>
+   <div class="container" style="padding:50px 250px;">
+    <h1>Tracker</h1>
+	<form role="form">
+        <div class="form-group">
+          <input type="input" class="form-control input-lg" id="txt-search" placeholder="Type your search character">
+        </div>
+	</form>
+	<div id="filter-records"></div>
+  </div>
+
+  
+
+    <!-- 
+     The `defer` attribute causes the callback to execute after the full HTML
+     document has been parsed. For non-blocking uses, avoiding race conditions,
+     and consistent behavior across browsers, consider loading using Promises
+     with https://www.npmjs.com/package/@googlemaps/js-api-loader.
+    -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAanq395kdOKOUuBBEe_jhaV_0F6BQcK9k&callback=initMap&v=weekly"
+      defer
+    ></script>
+    <script src="maps.js"></script>  
+<script>
+
+  $(document).ready(function(){
+    let users = [
+  {
+    nama : "josua",
+    akses : "supir",
+    jurusan : "Leuwi Pamjang",
+    lat: 	-6.89787, 
+    lng: 107.56314 
+  },
+  {
+    nama : "panjaitan",
+    akses : "supir",
+    jurusan : "Cibiru",
+    lat: -6.90734, 
+    lng: 	107.57344 
+  },
+  {
+    nama : "nainggolan",
+    akses : "supir",
+    jurusan : "Ujung Berung",
+    lat: -6.9101,
+    lng: 	107.6577
+  },
+  {
+    nama : "imanuel",
+    akses : "penumpang",
+    lat: -6.914864 ,
+    lng: 107.608238
+  }
+];
+    $('#txt-search').keyup(function(){
+                var searchField = $(this).val();
+          if(searchField === '')  {
+            $('#filter-records').html('');
+            return;
+          }
+          
+                var regex = new RegExp(searchField, "i");
+                var output = '<div class="row">';
+                var count = 1;
+            $.each(users, function(key, val){
+            if ((val.nama.search(regex) != -1) || (val.jurusan.search(regex) != -1)) {
+              
+              output += '<div class="col-md-6 well">';
+      
+              output += '<div class="col-md-7">';
+              output += '<h5>' + val.nama + '</h5>';
+              output += '<p>' + val.jurusan + '</p>'
+              output += '</div>';
+              output += '</div>';
+              if(count%2 == 0){
+              output += '</div><div class="row">'
+              }
+              count++;
+            }
+            });
+            output += '</div>';
+            $('#filter-records').html(output);
+            });
+      });
+        </script>
+</script>
+</body>
+
+</html>
